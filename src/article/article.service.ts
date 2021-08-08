@@ -187,11 +187,6 @@ export class ArticleService {
       throw new HttpException('You are not an author', HttpStatus.FORBIDDEN);
     }
 
-    // TODO Can I update slug?
-    if (article.title !== updateArticleDto.title) {
-      article.slug = ArticleService.getSlug(updateArticleDto.title);
-    }
-
     Object.assign(article, updateArticleDto);
 
     return await this.articleRepository.save(article);
