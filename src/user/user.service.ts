@@ -56,7 +56,7 @@ export class UserService {
     }
 
     const match = await compare(user.password, userByEmail.password);
-
+    console.log(match, match);
     if (!match) {
       throw new HttpException(
         'Credentials are not valid',
